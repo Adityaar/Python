@@ -41,11 +41,11 @@ class LinkedList:
     def print_list(self):
         current = self.head
         while current != None:
-            print str(current.getData()) ,#+ '-->' ,
+            print(str(current.getData()) ),
             current = current.getNext()
-            if current != None:
-                print '-->' ,
-        print
+            #if current is not None:
+            #    print('-->')
+        print()
                     
     def search(self,item):
         current = self.head
