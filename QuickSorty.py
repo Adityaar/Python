@@ -1,6 +1,7 @@
 """ Quick sort Algo to sort a random list of numbers. """
+
 def quickSort(alist):
-    """ A wrapper function for first call to recursive quick Sort function"""
+    """ A wrapper function for first call to recursive quick Sort function"""    
     quickSortHelper(alist,0,len(alist)-1)
     return alist
 
@@ -37,12 +38,13 @@ def partition(alist,first,last):
             leftmark = leftmark + 1
         while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
             rightmark = rightmark -1
-        if rightmark < leftmark:
-            done = True
+        if leftmark <= rightmark:
+            alist[leftmark] , alist[rightmark] = alist[rightmark] , alist[leftmark]
         else:
-            (alist[first] , alist[rightmark]) = (alist[rightmark] , alist[first])
+            done = True
+    alist[first], alist[rightmark] = alist[rightmark], alist[first]
     return rightmark
 
 unordered_list = [54,26,93,17,77,31,44,55,20]
-ordered_list = quickSort(unordered_list)
-print(ordered_list)
+sorted_list = quickSort(unordered_list)
+print(sorted_list)
