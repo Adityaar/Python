@@ -25,6 +25,8 @@ def partition(alist,first,last):
         Some of the other approaches are:
         a. Examine the first, last and middle items of the input array. Use the value that is
         between the other two for the dividing item.
+        b. Pick a random index from the input array to sort and then use the value at that
+        index as the Pivot/Dividing item.
     """
     pivotvalue = alist[first]
     leftmark = first+1
