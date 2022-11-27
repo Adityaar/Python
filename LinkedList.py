@@ -1,10 +1,12 @@
 """Program to demonstrate a LinkedList or Unordered List. """
 
+
 class Node:
     """ Class that defines a Node object and operations that can be
         performed on a node of a list.
     """
-    def __init__(self,data):
+
+    def __init__(self, data):
         self.data = data
         self.next = None
 
@@ -16,11 +18,11 @@ class Node:
         """ Get the reference pointing to next node in the list. """
         return self.next
 
-    def set_data(self,new_value):
+    def set_data(self, new_value):
         """ Set the value of the current node to new value."""
         self.data = new_value
 
-    def set_next(self,next_node):
+    def set_next(self, next_node):
         """ Update the next pointer to a new node. """
         self.next = next_node
 
@@ -28,8 +30,10 @@ class Node:
         """ Check if the pointer in current node has reached the END"""
         return self.next is not None
 
+
 class LinkedList:
     """ ADT pointing to a head of the list. """
+
     def __init__(self):
         self.head = None
 
@@ -37,7 +41,7 @@ class LinkedList:
         """Check if the list is empty."""
         return self.head is None
 
-    def add(self,item):
+    def add(self, item):
         """ Add a new node to the FRONT of the List. """
         temp = Node(item)
         temp.set_next(self.head)
@@ -59,7 +63,7 @@ class LinkedList:
             print(str(current.get_data()))
             current = current.get_next()
 
-    def search(self,item):
+    def search(self, item):
         """ Given an item, search and return True or False """
         current = self.head
         found = False
@@ -71,7 +75,7 @@ class LinkedList:
                 current = current.get_next()
         return found
 
-    def remove(self,item):
+    def remove(self, item):
         """Search and Remove an item from the list. """
         current = self.head
         prev = current
@@ -85,19 +89,20 @@ class LinkedList:
             self.head = current.get_next()
             del current
 
-        #To check nodes other than Head of the list
+        # To check nodes other than Head of the list
         while not found:
-            if current.get_data() == item :
+            if current.get_data() == item:
                 found = True
                 prev.set_next(current.get_next())
                 del current
             else:
                 prev = current
-                current = current.get_next() 
+                current = current.get_next()
                 # If the item was not found and current reached END.
                 if current is None:
-                    print("Item: "+str(item)+" not found")
+                    print("Item: " + str(item) + " not found")
                     break
+
 
 mylist = LinkedList()
 
@@ -112,12 +117,12 @@ mylist.add(25)
 mylist.add(23)
 mylist.add(21)
 
-print ("\nBefore deletion:")
+print("\nBefore deletion:")
 
 mylist.print_list()
 mylist.remove(21)
-print ("\nAfter deletion:")
+print("\nAfter deletion:")
 mylist.print_list()
 mylist.remove(21)
-print ("\nAfter deletion:")
+print("\nAfter deletion:")
 mylist.print_list()
